@@ -14,7 +14,7 @@ eventButton.addEventListener("click", () => {
 
   const titleInput = document.createElement("input");
   titleInput.type = "text";
-  titleInput.name = "title";
+  titleInput.name = "name";
   form.appendChild(titleInput);
 
   const authorLabel=document.createElement("label");
@@ -31,9 +31,18 @@ eventButton.addEventListener("click", () => {
   form.appendChild(dateLabel);
 
   const dateInput = document.createElement("input");
-  dateInput.type = "date";
-  dateInput.name = "date";
+  dateInput.type = "text";
+  dateInput.name = "dates";
   form.appendChild(dateInput);
+
+  const descriptionLabel = document.createElement("label");
+  descriptionLabel.textContent = "Description:";
+  form.appendChild(descriptionLabel);
+
+  const descriptionInput = document.createElement("input");
+  descriptionInput.type = "text";
+  descriptionInput.name = "description";
+  form.appendChild(descriptionInput);
 
   const submitButton = document.createElement("button");
   submitButton.type = "submit";
@@ -46,9 +55,10 @@ eventButton.addEventListener("click", () => {
     event.preventDefault();
     const formData = new FormData(form);
     const data = {
-      title: formData.get("title"),
-      date: formData.get("date"),
-      author: formData.get("author")
+      name: formData.get('name'),
+      dates: formData.get('dates').split(','),
+      author: formData.get('author'),
+      description: formData.get('description')
     };
     console.log(data);
     fetch("http://localhost:3000/api/events", {
