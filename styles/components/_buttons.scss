@@ -1,0 +1,45 @@
+@import '../utils/variables';
+
+.cont_button{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    button{
+        font-family: system-ui, sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        cursor: pointer;
+        border: none;
+        margin: .1em;
+        text-align: right;
+
+        --b: 3px;   // border thickness
+        --s: .10em; // size of the corner
+        --c: #0eb92b;
+        
+        padding: calc(.05em + var(--s)) calc(.3em + var(--s));
+        color: var(--c);
+        --_p: var(--s);
+        background:
+          conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+          var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+        transition: .3s linear, color 0s, background-color 0s;
+        outline: var(--b) solid #0000;
+        outline-offset: .2em;
+        &:hover{
+            --_p: 0px;
+            outline-color: var(--c);
+            outline-offset: .05em;
+            background-color: chartreuse;
+        }
+        &:focus-visible{
+            --_p: 0px;
+            outline-color: var(--c);
+            outline-offset: .05em;
+        }
+        &:active {
+            background: var(--c);
+            color: #fff;
+          }
+    }
+}        

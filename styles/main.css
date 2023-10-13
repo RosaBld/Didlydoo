@@ -1,0 +1,132 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  border-radius: 0;
+}
+
+.cont_button {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.cont_button button {
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  margin: 0.1em;
+  text-align: right;
+  --b: 3px;
+  --s: .10em;
+  --c: #0eb92b;
+  padding: calc(0.05em + var(--s)) calc(0.3em + var(--s));
+  color: var(--c);
+  --_p: var(--s);
+  background: conic-gradient(from 90deg at var(--b) var(--b), rgba(0, 0, 0, 0) 90deg, var(--c) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2 * var(--_p)) calc(100% - var(--b) - 2 * var(--_p));
+  transition: 0.3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid rgba(0, 0, 0, 0);
+  outline-offset: 0.2em;
+}
+.cont_button button:hover {
+  --_p: 0px;
+  outline-color: var(--c);
+  outline-offset: 0.05em;
+  background-color: chartreuse;
+}
+.cont_button button:focus-visible {
+  --_p: 0px;
+  outline-color: var(--c);
+  outline-offset: 0.05em;
+}
+.cont_button button:active {
+  background: var(--c);
+  color: #fff;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.checkbox-wrapper input[type=checkbox] {
+  visibility: hidden;
+  display: none;
+}
+.checkbox-wrapper *, .checkbox-wrapper::after, .checkbox-wrapper::before {
+  box-sizing: border-box;
+}
+.checkbox-wrapper .check {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  opacity: 0;
+}
+.checkbox-wrapper .label svg {
+  vertical-align: middle;
+}
+.checkbox-wrapper .path1 {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: 0.5s stroke-dashoffset;
+  opacity: 0;
+}
+.checkbox-wrapper .check:checked + .label svg g path {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+body {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: solid 2px #41403E;
+  margin: 1%;
+}
+
+body header h1 {
+  color: #1169ce;
+  font-size: 6rem;
+  text-align: center;
+  margin-top: 5%;
+}/*# sourceMappingURL=main.css.map */
