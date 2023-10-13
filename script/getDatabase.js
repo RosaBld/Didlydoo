@@ -1,5 +1,3 @@
-// Import DataBase
-
 const getData = async () => {
   const response = await fetch("http://localhost:3000/api/events", {
     method: "GET",
