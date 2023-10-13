@@ -1,1 +1,10 @@
-@import 'base/reset'
+@import '../styles/base/reset';
+
+@import '../styles/components/buttons';
+@import '../styles/components/checkbox';
+
+@import '../styles/pages/body';
+@import '../styles/pages/header';
+
+
+@import '../styles/utils/variables';
