@@ -19,12 +19,13 @@ function createExistingCard() {
         cardContainer.appendChild(divDate);
         divHeader.appendChild(titleEvent);
         titleEvent.textContent = element.title;
+        console.log(element.title);
         divHeader.appendChild(eventDescription);
         eventDescription.textContent = element.description;
         divHeader.appendChild(eventAuthor);
         eventAuthor.textContent = element.author;
 
-        for (let date = 0; date < 5; date++) {
+        for (let date = 0; date < 18; date++) {
           const elementDate = element.dates[date * 4];
           if (elementDate) {
             divDate.appendChild(document.createElement("p"));
@@ -37,7 +38,5 @@ function createExistingCard() {
       // Handle error
     });
 }
-
-createExistingCard();
 
 export { createExistingCard };
