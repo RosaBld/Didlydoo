@@ -1,7 +1,5 @@
 import { validate } from "./validate.js";
 
-const eventButton = document.getElementById("eventButton").addEventListener('click', addElement);
-
 function addElement () {
   const result = document.querySelector(".formulaire");
 
@@ -44,19 +42,16 @@ function addElement () {
   descriptionInput.name = "description";
   form.appendChild(descriptionInput);
 
-  const submitButton = document.createElement("button");
-  submitButton.type = "submit";
-  submitButton.textContent = "Submit";
-  form.appendChild(submitButton);
+  const eventButton = document.getElementById("eventButton")
+  eventButton.type = "submit";
 
-
-  form.addEventListener("submit", (event) => {
+  eventButton.addEventListener("click", (event) => {
     event.preventDefault();
     if (validate()) {
       const formData = new FormData(form);
       const data = {
         name: formData.get('name'),
-        dates: formData.get('dates'),
+        dates: formData.get('dates').split(","),
         author: formData.get('author'),
         description: formData.get('description')
       };
