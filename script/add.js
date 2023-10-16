@@ -1,13 +1,13 @@
 import { validate } from "./validate.js";
 
-const eventButton = document.getElementById("eventButton");
+const eventButton = document.getElementById("eventButton").addEventListener('click', addElement);
 
 const result=document.querySelector(".result");
 
 const form = document.createElement("form");
 result.appendChild(form);
 
-eventButton.addEventListener("click", () => {
+function addElement () {
   const form = document.createElement("form");
   result.appendChild(form);
 
@@ -85,6 +85,6 @@ eventButton.addEventListener("click", () => {
       .catch(error => console.error(error));
     }
   });
-});
+};
 
-export { eventButton };
+export { addElement };
