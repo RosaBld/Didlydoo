@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -54,7 +55,7 @@ input {
   justify-content: right;
 }
 .cont_button button {
-  font-family: system-ui, sans-serif;
+  font-family: "Indie Flower", cursive;
   font-weight: bold;
   font-size: 2rem;
   cursor: pointer;
