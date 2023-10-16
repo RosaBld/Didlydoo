@@ -56,7 +56,7 @@ function addElement () {
       const formData = new FormData(form);
       const data = {
         name: formData.get('name'),
-        dates: formData.get('dates').split(','),
+        dates: formData.get('dates'),
         author: formData.get('author'),
         description: formData.get('description')
       };
