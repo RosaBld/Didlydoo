@@ -1,7 +1,6 @@
 import { getData } from "./getDatabase.js";
 
 const cardContainer = document.getElementById("importingCardFromDb");
-
 function createExistingCard() {
   getData()
     .then((data) => {
@@ -13,7 +12,10 @@ function createExistingCard() {
 
         data.forEach((element) => {
           const divCard = document.createElement("div");
+          const deleteButton = document.createElement("button");
           divHeader.appendChild(divCard);
+          divHeader.appendChild(deleteButton);
+          deleteButton.textContent = "Delete";
           divCard.classList.add("card");
           const titleEvent = document.createElement("h3");
           const eventDescription = document.createElement("p");
@@ -52,11 +54,8 @@ function createExistingCard() {
             });
           });
 
-          dates.forEach((date) => {
-            const th = document.createElement("th");
-            th.textContent = date;
-            trDates.appendChild(th);
-          });
+          const sortedDates = Array.from(dates).sort();
+          const firstDate = sortedDates[0];
 
           attendees.forEach((attendee) => {
             const tr = document.createElement("tr");
@@ -65,19 +64,44 @@ function createExistingCard() {
             attendeesName.textContent = attendee;
             tr.appendChild(attendeesName);
 
-            dates.forEach((date) => {
-              const td = document.createElement("td");
-              tr.appendChild(td);
-              element.dates.forEach((d) => {
-                if (d.date === date) {
-                  d.attendees.forEach((a) => {
-                    if (a.name === attendee) {
-                      td.textContent = a.available;
-                    }
-                  });
-                }
-              });
+            let dateAdded = false;
+            element.dates.forEach((d) => {
+              if (d.date === firstDate) {
+                d.attendees.forEach((a) => {
+                  if (a.name === attendee) {
+                    const td = document.createElement("td");
+                    td.textContent = a.available;
+                    tr.appendChild(td);
+                    dateAdded = true;
+                  }
+                });
+              }
             });
+
+            sortedDates.forEach((date) => {
+              if (date !== firstDate) {
+                const td = document.createElement("td");
+                tr.appendChild(td);
+                element.dates.forEach((d) => {
+                  if (d.date === date) {
+                    d.attendees.forEach((a) => {
+                      if (a.name === attendee) {
+                        td.textContent = a.available;
+                      }
+                    });
+                  }
+                });
+              } else if (!dateAdded) {
+                const td = document.createElement("td");
+                tr.appendChild(td);
+              }
+            });
+          });
+
+          sortedDates.forEach((date) => {
+            const th = document.createElement("th");
+            th.textContent = date;
+            trDates.appendChild(th);
           });
         });
       }
