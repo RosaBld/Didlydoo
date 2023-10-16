@@ -5,4 +5,3 @@ import { createExistingCard } from "/script/createExistingCard.js";
 getData();
 addElement();
 createExistingCard();
-eventButton();

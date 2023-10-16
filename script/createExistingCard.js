@@ -7,35 +7,39 @@ function createExistingCard() {
     .then((data) => {
       console.log(data);
       if (data && data.length > 0) {
-        const element = data[0];
         const divHeader = document.createElement("div");
-        const divDate = document.createElement("div");
-        const titleEvent = document.createElement("h3");
-        const eventDescription = document.createElement("p");
-        const eventAuthor = document.createElement("p");
-        console.log(element);
-
+        divHeader.classList.add("header");
         cardContainer.appendChild(divHeader);
-        cardContainer.appendChild(divDate);
-        divHeader.appendChild(titleEvent);
-        titleEvent.textContent = element.title;
-        console.log(element.title);
-        divHeader.appendChild(eventDescription);
-        eventDescription.textContent = element.description;
-        divHeader.appendChild(eventAuthor);
-        eventAuthor.textContent = element.author;
 
-        for (let date = 0; date < 18; date++) {
-          const elementDate = element.dates[date * 4];
-          if (elementDate) {
-            divDate.appendChild(document.createElement("p"));
-            divDate.childNodes[date].textContent = elementDate;
+        data.forEach((element) => {
+          const divCard = document.createElement("div");
+          divHeader.appendChild(divCard);
+          divCard.classList.add("card");
+          const titleEvent = document.createElement("h3");
+          const eventDescription = document.createElement("p");
+          const eventAuthor = document.createElement("p");
+          divCard.appendChild(titleEvent);
+          titleEvent.textContent = element.name;
+          divCard.appendChild(eventDescription);
+          eventDescription.textContent = element.description;
+          divCard.appendChild(eventAuthor);
+          eventAuthor.textContent = element.author;
+          const divDate = document.createElement("div");
+          divCard.appendChild(divDate);
+          divDate.classList.add("date");
+          if (element.dates && element.dates.length > 0) {
+            element.dates.forEach((date) => {
+              const eventDate = document.createElement("p");
+              divDate.appendChild(eventDate);
+              eventDate.textContent = date.date;
+            });
           }
-        }
+        });
       }
     })
     .catch((error) => {
       // Handle error
+      console.log(error);
     });
 }
 
