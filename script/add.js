@@ -2,12 +2,9 @@ import { validate } from "./validate.js";
 
 const eventButton = document.getElementById("eventButton").addEventListener('click', addElement);
 
-const result=document.querySelector(".result");
-
-const form = document.createElement("form");
-result.appendChild(form);
-
 function addElement () {
+  const result = document.querySelector(".formulaire");
+
   const form = document.createElement("form");
   result.appendChild(form);
 
@@ -52,7 +49,6 @@ function addElement () {
   submitButton.textContent = "Submit";
   form.appendChild(submitButton);
 
-  document.body.appendChild(form);
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
