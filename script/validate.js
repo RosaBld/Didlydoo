@@ -37,9 +37,6 @@ export function validate() {
     } else if (dateValue.length >= 256) {
       alert("Dates must be 256 characters or less.");
       isValid=false;
-    } else if (!/^\d{4}-\d{2}-\d{2}$/.test(dateValue)) {
-      alert("Invalid date format: YYYY-MM-DD");
-      isValid=false;
     }
     return isValid;
 }

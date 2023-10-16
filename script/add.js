@@ -31,7 +31,7 @@ function addElement () {
   form.appendChild(dateLabel);
 
   const dateInput = document.createElement("input");
-  dateInput.type = "text";
+  dateInput.type = "date";
   dateInput.name = "dates";
   form.appendChild(dateInput);
 
@@ -56,7 +56,7 @@ function addElement () {
       const formData = new FormData(form);
       const data = {
         name: formData.get('name'),
-        dates: formData.get('dates').split(','),
+        dates: formData.get('dates'),
         author: formData.get('author'),
         description: formData.get('description')
       };
