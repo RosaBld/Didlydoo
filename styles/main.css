@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -52,7 +55,7 @@ input {
   justify-content: right;
 }
 .cont_button button {
-  font-family: system-ui, sans-serif;
+  font-family: "Indie Flower", cursive;
   font-weight: bold;
   font-size: 2rem;
   cursor: pointer;
@@ -118,10 +121,63 @@ input {
   opacity: 1;
 }
 
+.header {
+  margin-top: 10px;
+}
+.header .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 5px;
+  padding-bottom: 10px;
+  margin: 10px 10px;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: solid 2px #41403E;
+}
+.header .card h3 {
+  color: #2e8fff;
+  font-size: 28px;
+  padding: 10px;
+}
+.header .card p {
+  padding: 5px;
+  font-size: 18 px;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.formulaire label {
+  padding: 2px;
+  font-size: 20px;
+}
+.formulaire button {
+  text-align: center;
+  margin: auto;
+}
+
+table th {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: solid 2px #41403E;
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+table td {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: solid 2px #41403E;
+  text-align: left;
+  padding: 10px;
+  vertical-align: middle;
+}
+
 body {
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   border: solid 2px #41403E;
   margin: 1%;
+  font-family: "Indie Flower", cursive;
 }
 
 body header h1 {
