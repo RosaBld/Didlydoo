@@ -32,6 +32,16 @@ function createExistingCard() {
               const eventDate = document.createElement("p");
               divDate.appendChild(eventDate);
               eventDate.textContent = date.date;
+              if (date.attendees && date.attendees.length > 0) {
+                date.attendees.forEach((attendees) => {
+                  const attendeesName = document.createElement("p");
+                  const attendeesValue = document.createElement("p");
+                  divDate.appendChild(attendeesName);
+                  divDate.appendChild(attendeesValue);
+                  attendeesName.textContent = attendees.name;
+                  attendeesValue.textContent = attendees.available;
+                });
+              }
             });
           }
         });
