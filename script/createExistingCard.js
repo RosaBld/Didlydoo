@@ -40,7 +40,7 @@ function createExistingCard() {
           // Create attendeesName element
           const attendeesName = document.createElement("td");
           attendeesName.textContent = "Attendees";
-          trHeader.appendChild(attendeesName);
+          trDates.appendChild(attendeesName);
 
           const dates = new Set();
           element.dates.forEach((date) => {
