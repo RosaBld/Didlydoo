@@ -1,0 +1,21 @@
+@import '../utils/variables';
+
+.header{
+    margin-top: 10px;
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 5px;
+        padding-bottom: 10px;
+        h3{
+            color : $h3-color;
+            font-size: 28px;
+            padding: 5px
+        }
+        p {
+            padding : 5px;
+            font-size: 18 px;
+        }
+    }
+}
