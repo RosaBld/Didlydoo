@@ -1,23 +1,18 @@
-const deleteEvent = async (eventId) => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/events/${eventId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-  
-      if (response.ok) {
-        // Event deleted successfully, remove the card from the UI
-        divHeader.removeChild(divCard);
-      } else {
-        // Handle any error or show a message if the deletion failed
-        console.error("Failed to delete event");
-      }
-    } catch (error) {
-      console.error("Error deleting event:", error);
-    }
-  };
+// delete.js
 
-// Export the deleteEvent function
-export { deleteEvent };
+import { getData } from "./getDatabase.js";
+import { createExistingCard } from "./createExistingCard.js";
+
+function deleteEvent() {
+  const deleteButton = document.getElementById("deleteButton");
+  // add a click event listener to the button
+  deleteButton.addEventListener("click", async () => {
+    getData()
+    .then((data.JSON => {
+
+      
+    }).catch((err) => {
+      
+    });
+  });
+export { deleteEvent }
