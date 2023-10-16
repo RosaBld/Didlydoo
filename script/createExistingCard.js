@@ -24,26 +24,61 @@ function createExistingCard() {
           eventDescription.textContent = element.description;
           divCard.appendChild(eventAuthor);
           eventAuthor.textContent = element.author;
-          const divDate = document.createElement("div");
-          divCard.appendChild(divDate);
-          divDate.classList.add("date");
-          if (element.dates && element.dates.length > 0) {
-            element.dates.forEach((date) => {
-              const eventDate = document.createElement("p");
-              divDate.appendChild(eventDate);
-              eventDate.textContent = date.date;
-              if (date.attendees && date.attendees.length > 0) {
-                date.attendees.forEach((attendees) => {
-                  const attendeesName = document.createElement("p");
-                  const attendeesValue = document.createElement("p");
-                  divDate.appendChild(attendeesName);
-                  divDate.appendChild(attendeesValue);
-                  attendeesName.textContent = attendees.name;
-                  attendeesValue.textContent = attendees.available;
-                });
-              }
+          const table = document.createElement("table");
+          divCard.appendChild(table);
+          const thead = document.createElement("thead");
+          const tbody = document.createElement("tbody");
+          const trHeader = document.createElement("tr");
+          const trDates = document.createElement("tr");
+          table.appendChild(thead);
+          table.appendChild(tbody);
+          thead.appendChild(trHeader);
+          thead.appendChild(trDates);
+
+          // Create attendeesName element
+          const attendeesName = document.createElement("td");
+          attendeesName.textContent = "Attendees";
+          trHeader.appendChild(attendeesName);
+
+          const dates = new Set();
+          element.dates.forEach((date) => {
+            dates.add(date.date);
+          });
+
+          const attendees = new Set();
+          element.dates.forEach((date) => {
+            date.attendees.forEach((attendee) => {
+              attendees.add(attendee.name);
             });
-          }
+          });
+
+          dates.forEach((date) => {
+            const th = document.createElement("th");
+            th.textContent = date;
+            trDates.appendChild(th);
+          });
+
+          attendees.forEach((attendee) => {
+            const tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            const attendeesName = document.createElement("td");
+            attendeesName.textContent = attendee;
+            tr.appendChild(attendeesName);
+
+            dates.forEach((date) => {
+              const td = document.createElement("td");
+              tr.appendChild(td);
+              element.dates.forEach((d) => {
+                if (d.date === date) {
+                  d.attendees.forEach((a) => {
+                    if (a.name === attendee) {
+                      td.textContent = a.available;
+                    }
+                  });
+                }
+              });
+            });
+          });
         });
       }
     })
