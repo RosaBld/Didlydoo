@@ -42,9 +42,10 @@ function addElement () {
   descriptionInput.name = "description";
   form.appendChild(descriptionInput);
 
-  const eventButton = document.getElementById("eventButton");
+  const eventButton = document.getElementById("eventButton")
+  eventButton.type = "submit";
 
-  eventButton.addEventListener("submit", (event) => {
+  eventButton.addEventListener("click", (event) => {
     event.preventDefault();
     if (validate()) {
       const formData = new FormData(form);
