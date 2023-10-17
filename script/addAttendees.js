@@ -1,39 +1,89 @@
-export function addAttendees(element) {
+export function addAttendees(eventData, element) {
+    const cards = document.querySelectorAll('.card');
+    const table = document.querySelector('table');
+    const tbody = document.createElement('tbody');
+  
+    cards.forEach((card) => {
+        const formRow = document.createElement('tr');
+        const formCell = document.createElement('td');
+        const form = document.createElement('form');
+        const nameLabel = document.createElement('label');
+        const nameInput = document.createElement('input');
+        const submitButton = document.createElement('button');
 
-    const attendeesOption=document.querySelectorAll('tbody');
-    console.log(attendeesOption);
-    const cardAttendees=document.createElement('div');
-    cardAttendees.classList.add('cardAttendees');
-    // attendeesOption.appendChild(cardAttendees);
-    const addingAttendees=document.createElement('form');
+        form.classList.add('attendeesForm');
+        form.method = 'POST';
+        nameLabel.textContent = 'Name:';
+        nameInput.type = 'text';
+        nameInput.name = 'name';
+        submitButton.type = 'submit';
+        submitButton.textContent = 'Submit';
+
+        
+
+        form.appendChild(nameLabel);
+        form.appendChild(nameInput);
+        form.appendChild(submitButton);
+        formCell.appendChild(form);
+        formRow.appendChild(formCell);
+        card.appendChild(formRow);
+
+        eventData.dates.forEach((date) => {
+            const dateValue = date.date;
+            const checkbox=document.createElement('input');
+            checkbox.type='checkbox';
+            checkbox.name='checkbox';
+            checkbox.value='checkbox';
+            checkbox.checked=false;
+            card.appendChild(checkbox);
+        });
+        
+        const td = document.createElement('td');
+        td.appendChild(document.createTextNode(''));
+        card.appendChild(td);
+    });
+  
+    table.appendChild(tbody);
+        
+
+        // const addingAttendees=document.createElement('form');
+        // addingAttendees.classList.add('attendeesForm');
+        // addingAttendees.method='POST';
+        // cardAttendees.appendChild(addingAttendees);
+
+        // const attendeesName=document.createElement('label');
+        // attendeesName.textContent='Name:';
+        // addingAttendees.appendChild(attendeesName);
+
+        // const attendeesNameInput=document.createElement('input');
+        // attendeesNameInput.type='text';
+        // attendeesNameInput.name='name';
+        // addingAttendees.appendChild(attendeesNameInput);
     
+  
+    // const th=document.querySelectorAll('th');
+    // console.log(th);
+    
+    // th.forEach((th) => {
 
-    addingAttendees.classList.add('attendeesForm');
-    const attendeesName=document.createElement('label');
-    attendeesName.textContent='Name:';
-    addingAttendees.appendChild(attendeesName);
+    //     th.appendChild(cardAttendees);
 
-    const attendeesNameInput=document.createElement('input');
-    attendeesNameInput.type='text';
-    attendeesNameInput.name='name';
-    addingAttendees.appendChild(attendeesNameInput);
+    //     const attendeesChoice=document.createElement('div');
+    //     attendeesChoice.classList.add('attendeesChoice'); 
+    //     th.appendChild(attendeesChoice);
 
-    const attendeesCheckbox=document.querySelector('th');
-    const attendeesChoice=document.createElement('div');
-    attendeesChoice.classList.add('attendeesChoice'); 
-    attendeesCheckbox.appendChild(attendeesChoice);
-
-    const checkbox=document.createElement('input');
-    checkbox.type='checkbox';
-    checkbox.name='checkbox';
-    checkbox.value='checkbox';
-    checkbox.checked=false;
-    attendeesChoice.appendChild(checkbox);
+    //     const checkbox=document.createElement('input');
+    //     checkbox.type='checkbox';
+    //     checkbox.name='checkbox';
+    //     checkbox.value='checkbox';
+    //     checkbox.checked=false;
+    //     attendeesChoice.appendChild(checkbox);
+    // });
 
     const submitAttendees=document.createElement('button');
     submitAttendees.type='submit';
     submitAttendees.textContent='Send';
-    attendeesCheckbox.appendChild(submitAttendees);
+    // attendeesCheckbox.appendChild(submitAttendees);
     
     submitAttendees.addEventListener('click', async (e) => {
         // alert('push harder!');
