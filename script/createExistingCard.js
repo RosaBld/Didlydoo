@@ -4,19 +4,22 @@ import { addAttendees } from "./addAttendees.js";
 
 const cardContainer = document.getElementById("importingCardFromDb");
 function createExistingCard() {
+  //recupérer le data
   getData()
     .then((data) => {
       console.log(data);
+      //sectionner le data pour récupérer chaque item de l'array
       if (data && data.length > 0) {
         const divHeader = document.createElement("div");
         divHeader.classList.add("header");
         cardContainer.appendChild(divHeader);
-
+        //Mise en place du nom, author, description et bouton delete
         data.forEach((element) => {
           const divCard = document.createElement("div");
           const divButton = document.createElement("div");
-          const deleteButton = document.createElement("button");
           const updateButton = document.createElement("button");
+          const deleteButton = document.createElement("button");
+          deleteButton.addEventListener("click", deleteCard);
           divHeader.appendChild(divCard);
           divCard.appendChild(divButton);
           divButton.appendChild(deleteButton);
@@ -47,6 +50,8 @@ function createExistingCard() {
           const eventAuthor = document.createElement("p");
           eventAuthor.setAttribute("contenteditable", "true");
           divCard.appendChild(titleEvent);
+          let dataId = element.id;
+
           titleEvent.textContent = element.name;
           divCard.appendChild(eventDescription);
           eventDescription.textContent = element.description;
@@ -63,17 +68,47 @@ function createExistingCard() {
           thead.appendChild(trHeader);
           thead.appendChild(trDates);
 
+          async function deleteCard() {
+            // get the data from the database
+            await getData().then((data) => {
+              // loop through the data
+              data.forEach((element) => {
+                // get the id of the element
+              });
+
+              // send a DELETE request to the server to delete the selected element
+              try {
+                const response = fetch(
+                  `http://localhost:3000/api/events/${dataId}`,
+                  {
+                    method: "DELETE",
+                  }
+                );
+
+                if (response.ok) {
+                  // if the deletion was successful, remove the card from the UI
+                  selectedElement.remove();
+                } else {
+                  // if the deletion failed, log an error message
+                  console.error("Failed to delete event");
+                }
+              } catch (error) {
+                console.error("Error deleting event:", error);
+              }
+            });
+          }
+
           // Create attendeesName element
           const attendeesName = document.createElement("td");
           attendeesName.textContent = "Attendees";
           trDates.appendChild(attendeesName);
-
+          //display les dates dans le tableau
           const dates = new Set();
           element.dates.forEach((date) => {
             dates.add(date.date);
             
           });
-
+          // Selectionner les dates displonibles des users
           const attendees = new Set();
           element.dates.forEach((date) => {
             date.attendees.forEach((attendee) => {
@@ -83,14 +118,14 @@ function createExistingCard() {
 
           const sortedDates = Array.from(dates).sort();
           const firstDate = sortedDates[0];
-
+          //On vient ajouter les noms dans les colonnes
           attendees.forEach((attendee) => {
             const tr = document.createElement("tr");
             tbody.appendChild(tr);
             const attendeesName = document.createElement("td");
             attendeesName.textContent = attendee;
             tr.appendChild(attendeesName);
-
+            // On verifie les disponibilités par users
             let dateAdded = false;
             element.dates.forEach((d) => {
               if (d.date === firstDate) {
