@@ -13,7 +13,7 @@ export function addAttendees(eventData, element, card) {
     const submitButton = document.createElement('button');
 
     form.classList.add('attendeesForm');
-    form.method = 'POST';
+    // form.method = 'POST';
     nameLabel.textContent = 'Name:';
     userNameInput.type = 'text';
     userNameInput.name = 'name';
@@ -59,11 +59,15 @@ export function addAttendees(eventData, element, card) {
         }
 
         let userNameInput=userNameInput.value;
-        let availability=[];
+        dates=[];
+        let dates={
+            date:dateValue,
+            available:checkbox.checked,
+        };
         const available=checkbox.checked;
         const data= {
             name:name,
-            available:available,
+            date:dateValue,
         };
         
         
