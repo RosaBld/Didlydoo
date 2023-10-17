@@ -1,4 +1,5 @@
 import { getData } from "./getDatabase.js";
+import { deleteCard } from "./delete.js";
 
 const cardContainer = document.getElementById("importingCardFromDb");
 function createExistingCard() {
@@ -15,10 +16,9 @@ function createExistingCard() {
         data.forEach((element) => {
           const divCard = document.createElement("div");
           const deleteButton = document.createElement("button");
-          deleteButton.id = "deleteButton";
+          deleteButton.addEventListener("click", deleteCard);
           divHeader.appendChild(divCard);
-          divCard.appendChild(deleteButton);
-          deleteButton.onclick = "deleteCard()";
+          divHeader.appendChild(deleteButton);
           deleteButton.textContent = "Delete";
           divCard.classList.add("card");
           const titleEvent = document.createElement("h3");
