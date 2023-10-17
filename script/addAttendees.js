@@ -5,79 +5,44 @@ export function addAttendees(eventData, element, card) {
     const table = document.querySelector('table');
     const tbody = document.createElement('tbody');
   
-        const formRow = document.createElement('tr');
-        const formCell = document.createElement('td');
-        const form = document.createElement('form');
-        const nameLabel = document.createElement('label');
-        const nameInput = document.createElement('input');
-        const submitButton = document.createElement('button');
+    const formRow = document.createElement('tr');
+    const formCell = document.createElement('td');
+    const form = document.createElement('form');
+    const nameLabel = document.createElement('label');
+    const userNameInput = document.createElement('input');
+    const submitButton = document.createElement('button');
 
-        form.classList.add('attendeesForm');
-        form.method = 'POST';
-        nameLabel.textContent = 'Name:';
-        nameInput.type = 'text';
-        nameInput.name = 'name';
-        submitButton.type = 'submit';
-        submitButton.textContent = 'Submit';
+    form.classList.add('attendeesForm');
+    form.method = 'POST';
+    nameLabel.textContent = 'Name:';
+    userNameInput.type = 'text';
+    userNameInput.name = 'name';
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Submit';
 
-        form.appendChild(nameLabel);
-        form.appendChild(nameInput);
-        form.appendChild(submitButton);
-        formCell.appendChild(form);
-        formRow.appendChild(formCell);
-        card.appendChild(formRow);
+    form.appendChild(nameLabel);
+    form.appendChild(userNameInput);
+    form.appendChild(submitButton);
+    formCell.appendChild(form);
+    formRow.appendChild(formCell);
+    card.appendChild(formRow);
 
-        eventData.dates.forEach((date) => {
-            const dateValue = date.date;
-            console.log(dateValue);
-            const checkbox=document.createElement('input');
-            checkbox.type='checkbox';
-            checkbox.name='checkbox';
-            checkbox.value='checkbox';
-            checkbox.checked=false;
-            card.appendChild(checkbox);
-        });
+    eventData.dates.forEach((date) => {
+        const dateValue = date.date;
+        console.log(dateValue);
+        const checkbox=document.createElement('input');
+        checkbox.type='checkbox';
+        checkbox.name='checkbox';
+        checkbox.value='checkbox';
+        checkbox.checked=false;
+        form.appendChild(checkbox);
+    });
         
-        const td = document.createElement('td');
-        td.appendChild(document.createTextNode(''));
-        card.appendChild(td);
+    const td = document.createElement('td');
+    td.appendChild(document.createTextNode(''));
+    card.appendChild(td);
   
     table.appendChild(tbody);
-        
-
-        // const addingAttendees=document.createElement('form');
-        // addingAttendees.classList.add('attendeesForm');
-        // addingAttendees.method='POST';
-        // cardAttendees.appendChild(addingAttendees);
-
-        // const attendeesName=document.createElement('label');
-        // attendeesName.textContent='Name:';
-        // addingAttendees.appendChild(attendeesName);
-
-        // const attendeesNameInput=document.createElement('input');
-        // attendeesNameInput.type='text';
-        // attendeesNameInput.name='name';
-        // addingAttendees.appendChild(attendeesNameInput);
-    
-  
-    // const th=document.querySelectorAll('th');
-    // console.log(th);
-    
-    // th.forEach((th) => {
-
-    //     th.appendChild(cardAttendees);
-
-    //     const attendeesChoice=document.createElement('div');
-    //     attendeesChoice.classList.add('attendeesChoice'); 
-    //     th.appendChild(attendeesChoice);
-
-    //     const checkbox=document.createElement('input');
-    //     checkbox.type='checkbox';
-    //     checkbox.name='checkbox';
-    //     checkbox.value='checkbox';
-    //     checkbox.checked=false;
-    //     attendeesChoice.appendChild(checkbox);
-    // });
 
     const submitAttendees=document.createElement('button');
     submitAttendees.type='submit';
@@ -93,18 +58,20 @@ export function addAttendees(eventData, element, card) {
             return;
         }
 
+        let userNameInput=userNameInput.value;
+        let availability=[];
         const available=checkbox.checked;
         const data= {
             name:name,
             available:available,
         };
-        let availability=[];
+        
         
         const eventID=element.id;
         element.dates.forEach((date) => {
             const dateValue=date.date;
             const checkbox=document.querySelector(`input[name="${dateValue}"]`);
-            availability.push({
+            data.push({
                 date:dateValue,
                 available:checkbox.checked,
             });
