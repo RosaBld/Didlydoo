@@ -1,3 +1,6 @@
+import { createExistingCard } from "./createExistingCard.js";
+
+
 const updateEventDetails = async (eventId, newName, newDescription, newAuthor) => {
     try {
       const response = await fetch(`http://localhost:3000/api/events/${eventId}`, {
@@ -23,4 +26,5 @@ const updateEventDetails = async (eventId, newName, newDescription, newAuthor) =
       console.error("Error updating event details:", error);
     }
   };
-  
+
+export { updateEventDetails };

@@ -1,11 +1,12 @@
 @import '../utils/variables';
+@import '../utils/fonts';
 
 .cont_button{
     display: flex;
     align-items: center;
     justify-content: right;
     button{
-        font-family: system-ui, sans-serif;
+        font-family: 'Indie Flower', cursive;
         font-weight: bold;
         font-size: 2rem;
         cursor: pointer;
@@ -42,4 +43,16 @@
             color: #fff;
           }
     }
-}        
+}  
+
+.divbutton{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin: 5px;
+    button{
+        border: none;
+        background:none;
+        cursor: pointer;
+    }
+}
