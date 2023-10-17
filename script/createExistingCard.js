@@ -18,7 +18,7 @@ function createExistingCard() {
           deleteButton.id = "deleteButton";
           divHeader.appendChild(divCard);
           divCard.appendChild(deleteButton);
-          deleteButton.onclick = "deleteEvent()";
+          deleteButton.onclick = "deleteCard()";
           deleteButton.textContent = "Delete";
           divCard.classList.add("card");
           const titleEvent = document.createElement("h3");
