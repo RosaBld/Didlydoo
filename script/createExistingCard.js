@@ -23,14 +23,14 @@ function createExistingCard() {
           divButton.appendChild(updateButton);
           //update Button
           updateButton.addEventListener("click", () => {
-            const eventId = element.id;
+            const eventID = element.id;
             const newName = titleEvent.textContent;
             const newDescription = eventDescription.textContent;
             const newAuthor = eventAuthor.textContent;
           
             // Check if any of the fields are empty or unchanged before making the update.
             if (newName.trim() !== "" && newDescription.trim() !== "" && newAuthor.trim() !== "") {
-              updateEventDetails(eventId, newName, newDescription, newAuthor);
+              updateEventDetails(eventID, newName, newDescription, newAuthor);
             } else {
               alert("Please fill in all fields before updating.");
             }

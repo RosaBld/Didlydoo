@@ -1,11 +1,12 @@
-export function addAttendees() {
+export function addAttendees(element) {
 
-    const attendeesOption=document.querySelector('td');
+    const attendeesOption=document.querySelectorAll('tbody');
+    console.log(attendeesOption);
     const cardAttendees=document.createElement('div');
     cardAttendees.classList.add('cardAttendees');
-    attendeesOption.appendChild(cardAttendees);
+    // attendeesOption.appendChild(cardAttendees);
     const addingAttendees=document.createElement('form');
-    cardAttendees.appendChild(addingAttendees);
+    
 
     addingAttendees.classList.add('attendeesForm');
     const attendeesName=document.createElement('label');
@@ -21,26 +22,36 @@ export function addAttendees() {
     const attendeesChoice=document.createElement('div');
     attendeesChoice.classList.add('attendeesChoice'); 
     attendeesCheckbox.appendChild(attendeesChoice);
+
     const checkbox=document.createElement('input');
     checkbox.type='checkbox';
     checkbox.name='checkbox';
     checkbox.value='checkbox';
+    checkbox.checked=false;
     attendeesChoice.appendChild(checkbox);
 
     const submitAttendees=document.createElement('button');
     submitAttendees.type='submit';
     submitAttendees.textContent='Send';
-    addingAttendees.appendChild(submitAttendees);
+    attendeesCheckbox.appendChild(submitAttendees);
     
-    submitAttendees.addEventListener('click', (event) => {
-        event.preventDefault();
+    submitAttendees.addEventListener('click', async (e) => {
+        // alert('push harder!');
+        e.preventDefault();
         const name=attendeesNameInput.value;
+        
+        if (!name) {
+            alert('Please enter your name');
+            return;
+        }
+
         const available=checkbox.checked;
         const data= {
             name:name,
             available:available,
         };
         let availability=[];
+        
         const eventID=element.id;
         element.dates.forEach((date) => {
             const dateValue=date.date;
