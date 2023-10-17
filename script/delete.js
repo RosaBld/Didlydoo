@@ -2,9 +2,9 @@
 
 // import { getData } from "./getDatabase";
 
-const deleteButton = document
-  .getElementById("deleteButton")
-  .addEventListener("click", deleteCard);
+// const deleteButton = document
+//   .getElementById("deleteButton")
+//   .addEventListener("click", deleteCard);
 
 // add a click event listener to the button
 function deleteCard() {
