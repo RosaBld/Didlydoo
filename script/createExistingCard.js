@@ -112,7 +112,18 @@ function createExistingCard() {
                   if (d.date === date) {
                     d.attendees.forEach((a) => {
                       if (a.name === attendee) {
-                        td.textContent = a.available;
+                        if (a.available === true) {
+                          const greenCheckmark = document.createElement("span");
+                          greenCheckmark.textContent = 'V';
+                          greenCheckmark.style.color = 'green';
+                          td.appendChild(greenCheckmark);
+                        } else {
+                          const redX = document.createElement("span");
+                          redX.textContent = 'X';
+                          redX.style.color = 'red';
+                          td.appendChild(redX);
+                        }
+                        tr.appendChild(td);
                       }
                     });
                   }
