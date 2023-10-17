@@ -29,9 +29,10 @@ export function addElement () {
   form.appendChild(dateLabel);
 
   const dateInput = document.createElement("input");
-  dateInput.type = "date";
+  dateInput.type = "text"; // Change the type to "text"
   dateInput.name = "dates";
-  form.appendChild(dateInput);
+  dateInput.placeholder = "0000-00-00,0000-00-00,...";
+  form.appendChild(dateInput);  
 
   const descriptionLabel = document.createElement("label");
   descriptionLabel.textContent = "Description:";
@@ -49,9 +50,10 @@ export function addElement () {
     event.preventDefault();
     if (validate()) {
       const formData = new FormData(form);
+      const dates = formData.get('dates').split(",").map(date => date.trim()); // Split and trim dates
       const data = {
         name: formData.get('name'),
-        dates: formData.get('dates').split(","),
+        dates: dates, // Store dates in an array
         author: formData.get('author'),
         description: formData.get('description')
       };
@@ -65,7 +67,7 @@ export function addElement () {
       })
       .then(response => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          console.log("Network response was not ok");
         }
         return response.json();
       })
@@ -75,5 +77,5 @@ export function addElement () {
       })
       .catch(error => console.error(error));
     }
-  });
+  });  
 };

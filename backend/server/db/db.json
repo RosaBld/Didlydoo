@@ -1,15 +1,30 @@
 [
   {
+    "id": "74c532e79375",
+    "name": "Soirée Netflix",
+    "author": "Elodie",
+    "description": "On regarde des séries et on mange des chips",
+    "dates": [
+      "2023-10-19",
+      "2023-10-20",
+      "2023-10-21"
+    ],
+    "created_at": "2023-10-17T10:18:43.916Z",
+    "num_modification": 0,
+    "last_modification": "2023-10-17T10:18:43.916Z",
+    "attendees": []
+  },
+  {
     "id": "3672b7d44fc6",
-    "name": "Burger King DInner",
+    "name": "Burger King Souper",
     "author": "Antoine et pierre",
-    "description": "On s'éclate avec des frittes",
+    "description": "On s'éclate avec des frittes et du ketchup",
     "dates": [
       "2023-10-20"
     ],
     "created_at": "2023-10-16T14:11:45.823Z",
-    "num_modification": 5,
-    "last_modification": "2023-10-17T08:30:23.019Z",
+    "num_modification": 7,
+    "last_modification": "2023-10-17T08:51:05.609Z",
     "attendees": []
   },
   {
@@ -27,7 +42,7 @@
   },
   {
     "id": "f5b6564b5dc4",
-    "name": "My sweet 16",
+    "name": "My sweet 16 and drink",
     "description": "I am going to be 16, let us all party together! Help me pick a date so we can go together",
     "author": "John Doe",
     "dates": [
@@ -69,8 +84,8 @@
       }
     ],
     "created_at": "2021-11-15T00:00",
-    "num_modification": 4,
-    "last_modification": "2023-10-17T08:25:25.811Z"
+    "num_modification": 5,
+    "last_modification": "2023-10-17T08:50:47.288Z"
   },
   {
     "id": "38b643aeb883",
