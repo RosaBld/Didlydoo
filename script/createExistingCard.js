@@ -176,8 +176,8 @@ function createExistingCard() {
             th.textContent = date;
             trDates.appendChild(th);
           });
+          addAttendees(element, element, divCard);
         });
-        addAttendees();
       }
     })
     .catch((error) => {
