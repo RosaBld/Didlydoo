@@ -1,5 +1,5 @@
 export function addAttendees() {
-    
+
     const attendeesOption=document.querySelector('td');
     const cardAttendees=document.createElement('div');
     cardAttendees.classList.add('cardAttendees');
@@ -35,13 +35,21 @@ export function addAttendees() {
     submitAttendees.addEventListener('click', (event) => {
         event.preventDefault();
         const name=attendeesNameInput.value;
-        const isAttending=checkbox.checked;
+        const available=checkbox.checked;
         const data= {
             name:name,
-            isAttending:isAttending,
+            available:available,
         };
         let availability=[];
-        const eventID=data.id;
+        const eventID=element.id;
+        element.dates.forEach((date) => {
+            const dateValue=date.date;
+            const checkbox=document.querySelector(`input[name="${dateValue}"]`);
+            availability.push({
+                date:dateValue,
+                available:checkbox.checked,
+            });
+        })
         console.log(eventID);
         let userAvailability= {
             name,
