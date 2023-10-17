@@ -1,9 +1,10 @@
-export function addAttendees(eventData, element) {
+export function addAttendees(eventData, element, card) {
+    console.log(eventData);
+
     const cards = document.querySelectorAll('.card');
     const table = document.querySelector('table');
     const tbody = document.createElement('tbody');
   
-    cards.forEach((card) => {
         const formRow = document.createElement('tr');
         const formCell = document.createElement('td');
         const form = document.createElement('form');
@@ -19,8 +20,6 @@ export function addAttendees(eventData, element) {
         submitButton.type = 'submit';
         submitButton.textContent = 'Submit';
 
-        
-
         form.appendChild(nameLabel);
         form.appendChild(nameInput);
         form.appendChild(submitButton);
@@ -30,6 +29,7 @@ export function addAttendees(eventData, element) {
 
         eventData.dates.forEach((date) => {
             const dateValue = date.date;
+            console.log(dateValue);
             const checkbox=document.createElement('input');
             checkbox.type='checkbox';
             checkbox.name='checkbox';
@@ -41,7 +41,6 @@ export function addAttendees(eventData, element) {
         const td = document.createElement('td');
         td.appendChild(document.createTextNode(''));
         card.appendChild(td);
-    });
   
     table.appendChild(tbody);
         
@@ -85,9 +84,8 @@ export function addAttendees(eventData, element) {
     submitAttendees.textContent='Send';
     // attendeesCheckbox.appendChild(submitAttendees);
     
-    submitAttendees.addEventListener('click', async (e) => {
+    submitAttendees.addEventListener('click', () => {
         // alert('push harder!');
-        e.preventDefault();
         const name=attendeesNameInput.value;
         
         if (!name) {
@@ -122,7 +120,7 @@ export function addAttendees(eventData, element) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(userAvailability, eventID)
+            body: JSON.stringify(userAvailability)
             })
             .then(response => {
             if (!response.ok) {
@@ -131,7 +129,7 @@ export function addAttendees(eventData, element) {
             return response.json();
             })
             .then(data => {
-            console.log(data);
+            console.log(userAvailability);
             attendeesNameInput.value = '';
             checkbox.checked = false;
             })
