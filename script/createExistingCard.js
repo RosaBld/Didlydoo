@@ -1,5 +1,4 @@
 import { getData } from "./getDatabase.js";
-import { deleteCard } from "./delete.js";
 
 const cardContainer = document.getElementById("importingCardFromDb");
 function createExistingCard() {
@@ -25,6 +24,8 @@ function createExistingCard() {
           const eventDescription = document.createElement("p");
           const eventAuthor = document.createElement("p");
           divCard.appendChild(titleEvent);
+          let dataId = element.id;
+
           titleEvent.textContent = element.name;
           divCard.appendChild(eventDescription);
           eventDescription.textContent = element.description;
@@ -40,6 +41,36 @@ function createExistingCard() {
           table.appendChild(tbody);
           thead.appendChild(trHeader);
           thead.appendChild(trDates);
+
+          async function deleteCard() {
+            // get the data from the database
+            await getData().then((data) => {
+              // loop through the data
+              data.forEach((element) => {
+                // get the id of the element
+              });
+
+              // send a DELETE request to the server to delete the selected element
+              try {
+                const response = fetch(
+                  `http://localhost:3000/api/events/${dataId}`,
+                  {
+                    method: "DELETE",
+                  }
+                );
+
+                if (response.ok) {
+                  // if the deletion was successful, remove the card from the UI
+                  selectedElement.remove();
+                } else {
+                  // if the deletion failed, log an error message
+                  console.error("Failed to delete event");
+                }
+              } catch (error) {
+                console.error("Error deleting event:", error);
+              }
+            });
+          }
 
           // Create attendeesName element
           const attendeesName = document.createElement("td");
