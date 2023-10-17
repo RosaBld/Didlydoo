@@ -16,6 +16,7 @@ function createExistingCard() {
         data.forEach((element) => {
           const divCard = document.createElement("div");
           const divButton = document.createElement("div");
+          const updateButton = document.createElement("button");
           const deleteButton = document.createElement("button");
           deleteButton.addEventListener("click", deleteCard);
           divHeader.appendChild(divCard);
