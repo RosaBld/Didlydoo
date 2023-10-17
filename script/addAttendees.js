@@ -13,7 +13,7 @@ export function addAttendees(eventData, element, card) {
     const submitButton = document.createElement('button');
 
     form.classList.add('attendeesForm');
-    form.method = 'POST';
+    // form.method = 'POST';
     nameLabel.textContent = 'Name:';
     userNameInput.type = 'text';
     userNameInput.name = 'name';
@@ -101,5 +101,5 @@ export function addAttendees(eventData, element, card) {
             checkbox.checked = false;
             })
             .catch(error => console.error(error));
-        });
+    });
 };
