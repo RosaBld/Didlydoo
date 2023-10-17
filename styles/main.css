@@ -89,6 +89,18 @@ input {
   color: #fff;
 }
 
+.divbutton {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin: 5px;
+}
+.divbutton button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 .checkbox-wrapper {
   position: relative;
   display: block;
