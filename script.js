@@ -1,8 +1,7 @@
-import { getData } from "./script/getDatabase.js";
+// import { getData } from "./script/getDatabase.js";
 import { addElement } from "./script/add.js";
-import { createExistingCard } from "/script/createExistingCard.js";
+import { createExistingCard } from "./script/createExistingCard.js";
 
-
-getData();
+// getData();
 addElement();
 createExistingCard();
