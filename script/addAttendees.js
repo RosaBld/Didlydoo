@@ -59,11 +59,15 @@ export function addAttendees(eventData, element, card) {
         }
 
         let userNameInput=userNameInput.value;
-        let availability=[];
+        dates=[];
+        let dates={
+            date:dateValue,
+            available:checkbox.checked,
+        };
         const available=checkbox.checked;
         const data= {
             name:name,
-            available:available,
+            date:dateValue,
         };
         
         
