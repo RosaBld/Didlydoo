@@ -1,3 +1,4 @@
+import { addAttendees } from "./addAttendees.js";
 import { getData } from "./getDatabase.js";
 
 const cardContainer = document.getElementById("importingCardFromDb");
@@ -103,6 +104,7 @@ function createExistingCard() {
             th.textContent = date;
             trDates.appendChild(th);
           });
+          addAttendees() ;
         });
       }
     })

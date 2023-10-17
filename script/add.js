@@ -1,6 +1,6 @@
 import { validate } from "./validate.js";
 
-function addElement () {
+export function addElement () {
   const result = document.querySelector(".formulaire");
 
   const form = document.createElement("form");
@@ -77,5 +77,3 @@ function addElement () {
     }
   });
 };
-
-export { addElement };
