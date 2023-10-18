@@ -1,17 +1,31 @@
 [
   {
-    "id": "50a54fd020f5",
-    "name": "AquaPoney",
+    "id": "80be9fbe6b77",
+    "name": "AquaPoney and badminton",
     "author": "Brian is in the Kitchen",
     "description": "Venez à ma superbe après midi d'aquaPoney organisé dans ma superbe mansion parce que je suis pété de thune comme un gros porc!",
     "dates": [
-      "2023-10-20",
-      "2023-10-15",
-      "2023-10-18"
+      "2023-10-25",
+      "2023-11-11"
     ],
-    "created_at": "2023-10-17T12:54:32.225Z",
+    "created_at": "2023-10-18T07:37:48.705Z",
+    "num_modification": 1,
+    "last_modification": "2023-10-18T07:39:36.264Z",
+    "attendees": []
+  },
+  {
+    "id": "f9d2e743f52e",
+    "name": "Burger King Souper",
+    "author": "Antoine et pierre",
+    "description": "On s'éclate avec des frittes et du ketchup",
+    "dates": [
+      "2023-10-19",
+      "2023-10-20",
+      "2023-10-21"
+    ],
+    "created_at": "2023-10-18T07:32:12.957Z",
     "num_modification": 0,
-    "last_modification": "2023-10-17T12:54:32.225Z",
+    "last_modification": "2023-10-18T07:32:12.957Z",
     "attendees": []
   },
   {
@@ -60,57 +74,5 @@
     "created_at": "2021-11-15T00:00",
     "num_modification": 3,
     "last_modification": "2021-11-15T02:15"
-  },
-  {
-    "id": "38b643aeb883",
-    "name": "The big sale @ The Mall",
-    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
-    "author": "Jean D'eau",
-    "dates": [
-      "2022-01-10",
-      "2022-02-10",
-      "2022-03-10",
-      "2022-03-11",
-      "2022-03-12"
-    ],
-    "attendees": [
-      {
-        "name": "Michou",
-        "dates": [
-          {
-            "date": "2022-01-10",
-            "available": true
-          }
-        ]
-      },
-      {
-        "name": "Jane Doe",
-        "dates": [
-          {
-            "date": "2022-01-10",
-            "available": true
-          },
-          {
-            "date": "2022-02-10",
-            "available": true
-          },
-          {
-            "date": "2022-03-10",
-            "available": true
-          },
-          {
-            "date": "2022-03-11",
-            "available": true
-          },
-          {
-            "date": "2022-03-12",
-            "available": false
-          }
-        ]
-      }
-    ],
-    "created_at": "2021-11-13T14:00",
-    "num_modification": 0,
-    "last_modification": "2021-11-13T14:00"
   }
 ]
